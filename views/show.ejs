@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campground</title>
+</head>
+
+<style>
+    img {
+        max-height: 50vh;
+        max-width: 60vw;
+    }
+
+    .main {
+        box-shadow: 30px;
+        margin: auto;
+        background-color: ghostwhite;
+        border: 1px solid green;
+        margin: 0 auto;
+    }
+</style>
+
+<body>
+    <% console.log("show.ejs file !! \n\n") %>
+        <div class="main">
+
+
+            <img src="https://therovingfoleys.com/wp-content/uploads/2020/01/Camping-at-night.jpg"
+                alt="Campground Image">
+            <h1>
+                <%= campground.city %>
+            </h1>
+            <h3>
+                <%= campground.state %>
+            </h3>
+            <p>
+                <%= campground.descriptor %>
+            </p>
+            <% for (let c in campground.campers ){%>
+                <li>
+                    <%= c.name %>
+                </li>
+
+                <%} %>
+                    <div>
+                        <a href=" /campgrounds">
+                            Back to home </a>
+                        <br>
+                        <a href="/campgrounds/<%=campground._id %>/person">Add New Person</a>
+                    </div>
+                    <br>
+                    <a href="/campgrounds/<%=campground._id %>">test with gets</a>
+                    <form action="/campgrounds/<%=campground._id %>?_method=DELETE" method="POST">
+                        <button>DELETE CAMPGROUND</button>
+                    </form>
+        </div>
+</body>
+
+</html>

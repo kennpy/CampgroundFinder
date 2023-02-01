@@ -1,0 +1,8 @@
+<% layout("../layouts/boilerplate") %>
+
+    <h2>All Campers</h2>
+    <% for (let person in persons) { %>
+        <li>
+            <%= person.name %>
+        </li>
+        <% } %>

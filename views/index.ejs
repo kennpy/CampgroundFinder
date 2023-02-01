@@ -1,0 +1,60 @@
+<% layout("../layouts/boilerplate") %>
+    <style>
+        h1 {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        .list-group {
+            display: flex;
+            flex-wrap: wrap;
+            width: 80vw;
+            margin: 0 auto;
+        }
+
+        .list-group div {
+            max-width: 300px;
+        }
+
+        .campForm {
+            width: 50vw;
+            margin-left: 10%;
+        }
+    </style>
+    <h1>All Campgrounds</h1>
+    <form action="/campgrounds/new" class="container-sm campForm">
+        <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" class="form-control" id="city" placeholder="City">
+        </div>
+        <div class="form-group">
+            <label for="state">State</label>
+            <input type="text" class="form-control" id="state" placeholder="State">
+        </div>
+        <div class="form-group">
+            <label for="descriptor">City</label>
+            <input type="text" class="form-control" id="descriptor" placeholder="Description">
+        </div>
+        <button type="submit" class="btn btn-primary mt-4 mb-3">Submit</button>
+    </form>
+    </form>
+
+    <div class="list-flex">
+
+        <ul class="list-group">
+            <% for (let campground of campgrounds){%>
+                <div>
+                    <li class="list-group-item container-sm m-3 shadow-sm ">
+
+                        <a href=" /campgrounds/<%=campground._id %>">
+                            <div>
+
+                                <img src="https://therovingfoleys.com/wp-content/uploads/2020/01/Camping-at-night.jpg"
+                                    alt="Campground Image" class="img-fluid" width="300">
+                            </div>
+                            <%= campground.city %>
+                        </a>
+                    </li>
+                </div>
+                <% }%>
+        </ul>
+    </div>

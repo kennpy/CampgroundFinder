@@ -1,0 +1,12 @@
+<% layout("../layouts/boilerplate") %>
+
+    <h1>
+        <%= campground.city %>
+    </h1>
+    <form action="/campgrounds/<%=campground._id %>/person/new" method="POST">
+        <input type="text" name="name" placeholder="Name">
+        <input type="text" name="age" placeholder="Age">
+        <button>Add New Person</button>
+    </form>
+    <br>
+    <a href="/campgrounds">Back to Home</a>
